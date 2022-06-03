@@ -19,8 +19,12 @@ header img {
   border-radius: 0.5rem;
 }
 
-nav a {
-  text-decoration: none;
+a {
+  all: unset;
+}
+
+a:hover {
+    color: red;
 }
 
 nav img {
