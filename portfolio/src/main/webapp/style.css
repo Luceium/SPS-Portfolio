@@ -12,9 +12,9 @@ header h1 {
 }
 
 header img {
+  border-radius: 0.5rem;
   height: 1rem;
   width: 1rem;
-  border-radius: 0.5rem;
 }
 
 a {
@@ -22,14 +22,14 @@ a {
 }
 
 a:hover {
-    color: rgb(0, 255, 64);
+  color: rgb(0, 255, 64);
 }
 
 nav img {
-  height: 3em;
-  width: 3em;
   border-radius: 1em;
+  height: 3em;
   padding-left: 3em;
+  width: 3em;
 }
 
 #content {
