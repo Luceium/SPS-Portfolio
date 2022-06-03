@@ -43,15 +43,10 @@ let pics = ["images/favoritePhotography/beach.jpg", "images/favoritePhotography/
  * Populates div with my best photography
  */
 function randomPic() {
-  if (!picShowing){//creates img if it doesn't already exist (before first click)
-    const picContainer = document.getElementById("pic-container")
-    pic = document.createElement("img")
-    pic.id = "favorite-pic"
-    picContainer.appendChild(pic)
-  }
   //get img
-  pic = document.getElementById("favorite-pic")
+  picElem = document.getElementById("favorite-pic")
   //chose random img from options
-  pic.src = pics[randomFromArray(pics)]
-
+  picElem.src = pics[randomFromArray(pics)]
+  //make image visible
+  picElem.style.display = "block"
 }
