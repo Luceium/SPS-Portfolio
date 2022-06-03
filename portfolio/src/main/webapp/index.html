@@ -2,18 +2,43 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Mauricio's Page</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
   <body>
+    <header>
+       <ul>
+        <li>
+          <img src="/images/smallProfile.jpg">
+        </li>
+        <li>
+          <h1>Mauricio's Portfolio</h1>
+        </li>
+      </ul>
+      <nav>
+        <ul>
+          <li><a href="https://luceium.github.io/"><img src="images/favicon.png" alt="Other website"></a></li>
+          <li><a href="https://github.com/Luceium"><img src="images/github.png" alt="Github logo"></a></li>
+          <li><a href="https://www.linkedin.com/in/swemau/"><img src="images/linkedin.png" alt="Linkedin logo"></a></li>
+        </ul>
+      </nav>
+    </header>
     <div id="content">
-      <h1>My Portfolio</h1>
+     
       <p>This is my portfolio.</p>
+      <p>About me:</p>
+      <p>Ambition, a passion for learning, an idea person, a fasination for technology; these all define me.
+           Right now I'm a rising sophmore studying Computer Engineering at San Jose State University.
+           My dream is to work at Google as a software engineer.
+           For now I am hoping to publish a few apps I've been longing to make while I learn more about software engineering.        
+        </p>
       <p>Click <a href="/hello">here</a> to see content created by server code.</p>
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
+      <button onclick="randomPic()">One of my favorite photos</button>
+      <div id="pic-container"></div>
     </div>
   </body>
 </html>

@@ -13,16 +13,46 @@
 // limitations under the License.
 
 /**
+ * chose a random element from an array
+ */
+function randomFromArray(arr){
+  randomChoice = Math.floor(Math.random() * arr.length)
+  console.log(randomChoice + "/" + arr.length)//checks that the choice is indeed with in the constraints
+  return randomChoice
+}
+
+/**
  * Adds a random greeting to the page.
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!', "I'm related to Paul Revere", "Never tickle a sleeping Dragon"];
 
   // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  const greeting = greetings[randomFromArray(greetings)];
 
   // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
+}
+
+let picShowing = false
+
+let pics = ["images/favoritePhotography/beach.jpg", "images/favoritePhotography/Flower.jpg", "images/favoritePhotography/moon.jpg", "images/favoritePhotography/rockRain.jpg", "images/favoritePhotography/sunset.jpg"]
+
+/**
+ * Populates div with my best photography
+ */
+function randomPic() {
+  if (!picShowing){//creates img if it doesn't already exist (before first click)
+    const picContainer = document.getElementById("pic-container")
+    pic = document.createElement("img")
+    pic.id = "favorite-pic"
+    picContainer.appendChild(pic)
+  }
+  //get img
+  pic = document.getElementById("favorite-pic")
+  //chose random img from options
+  pic.src = pics[randomFromArray(pics)]
+
 }
