@@ -35,8 +35,6 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-let picShowing = false
-
 let pics = ["images/favoritePhotography/beach.jpg", "images/favoritePhotography/Flower.jpg", "images/favoritePhotography/moon.jpg", "images/favoritePhotography/rockRain.jpg", "images/favoritePhotography/sunset.jpg"]
 
 /**
