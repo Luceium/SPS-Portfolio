@@ -17,7 +17,6 @@
  */
 function randomFromArray(arr){
   randomChoice = Math.floor(Math.random() * arr.length)
-  console.log(randomChoice + "/" + arr.length)//checks that the choice is indeed with in the constraints
   return randomChoice
 }
 
