@@ -20,11 +20,11 @@ header img {
 }
 
 a {
-  all: unset;
+  color: unset;
 }
 
 a:hover {
-    color: red;
+    color: rgb(0, 255, 64);
 }
 
 nav img {
