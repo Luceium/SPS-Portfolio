@@ -16,8 +16,8 @@
  * chose a random element from an array
  */
 function randomFromArray(arr){
-  randomChoice = Math.floor(Math.random() * arr.length)
-  return randomChoice
+  randomChoice = Math.floor(Math.random() * arr.length);
+  return randomChoice;
 }
 
 /**
@@ -35,30 +35,29 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-let pics = ["images/favoritePhotography/beach.jpg", "images/favoritePhotography/Flower.jpg", "images/favoritePhotography/moon.jpg", "images/favoritePhotography/rockRain.jpg", "images/favoritePhotography/sunset.jpg"]
+let pics = ["images/favoritePhotography/beach.jpg", "images/favoritePhotography/Flower.jpg", "images/favoritePhotography/moon.jpg", "images/favoritePhotography/rockRain.jpg", "images/favoritePhotography/sunset.jpg"];
 
 /**
  * Populates div with my best photography
  */
 function randomPic() {
   //get img
-  picElem = document.getElementById("favorite-pic")
+  picElem = document.getElementById("favorite-pic");
   //chose random img from options
-  picElem.src = pics[randomFromArray(pics)]
+  picElem.src = pics[randomFromArray(pics)];
   //make image visible
-  picElem.style.display = "block"
+  picElem.style.display = "block";
 }
 
 /**
- * Do hello is a dynamic approach to the /hello servlet
+ * Fetches the response dynamically from the /hello servlet
  */
 async function doHello() {
-    //gets text from servlet
-    const response = await fetch("/hello")
-    const respText = await response.text()
-    console.log("Success: HelloWorldServlet response obtained")
+    const response = await fetch("/hello");
+    const respText = await response.text();
+    console.log("Success: HelloWorldServlet response obtained");
 
     //gets <p> to insert text
-    const respDisplayElem = document.getElementById("dynamicHello")
-    respDisplayElem.innerText = respText
+    const respDisplayElem = document.getElementById("dynamicHello");
+    respDisplayElem.innerText = respText;
 }
