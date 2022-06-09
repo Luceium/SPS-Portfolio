@@ -17,7 +17,7 @@
  */
 function randomFromArray(arr){
   randomChoice = Math.floor(Math.random() * arr.length);
-  return randomChoice;
+  return arr[randomChoice];
 }
 
 /**
@@ -28,7 +28,7 @@ function addRandomGreeting() {
       ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!', "I'm related to Paul Revere", "Never tickle a sleeping Dragon"];
 
   // Pick a random greeting.
-  const greeting = greetings[randomFromArray(greetings)];
+  const greeting = randomFromArray(greetings);
 
   // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
@@ -44,7 +44,7 @@ function randomPic() {
   //get img
   picElem = document.getElementById("favorite-pic");
   //chose random img from options
-  picElem.src = pics[randomFromArray(pics)];
+  picElem.src = randomFromArray(pics);
   //make image visible
   picElem.style.display = "block";
 }
@@ -53,11 +53,13 @@ function randomPic() {
  * Fetches the response dynamically from the /hello servlet
  */
 async function doHello() {
+    console.log("starting doHello()")
     const response = await fetch("/hello");
-    const respText = await response.text();
+    const respJson = await response.json();
     console.log("Success: HelloWorldServlet response obtained");
+    console.log(respJson)
 
     //gets <p> to insert text
     const respDisplayElem = document.getElementById("dynamicHello");
-    respDisplayElem.innerText = respText;
+    respDisplayElem.innerText = randomFromArray(respJson);
 }
