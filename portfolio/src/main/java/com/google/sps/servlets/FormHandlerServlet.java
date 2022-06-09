@@ -21,7 +21,7 @@ public class FormHandlerServlet extends HttpServlet {
     // Write the value to the response so the user can see it.
     response.getWriter().println("You submitted: " + textValue);
 
-    //redirect user back to homepage
+    // Redirect user back to homepage
     response.sendRedirect("/index.html");
   }
 }
