@@ -48,3 +48,17 @@ function randomPic() {
   //make image visible
   picElem.style.display = "block"
 }
+
+/**
+ * Do hello is a dynamic approach to the /hello servlet
+ */
+async function doHello() {
+    //gets text from servlet
+    const response = await fetch("/hello")
+    const respText = await response.text()
+    console.log("Success: HelloWorldServlet response obtained")
+
+    //gets <p> to insert text
+    const respDisplayElem = document.getElementById("dynamicHello")
+    respDisplayElem.innerText = respText
+}
