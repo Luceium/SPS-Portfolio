@@ -40,25 +40,27 @@
       <div id="greeting-container"></div>
       <button onclick="randomPic()">One of my favorite photos</button>
       <img id="favorite-pic" style="display: none;">
-    </div>
-    <form action="/form-handler" method="POST">
+      <br>
+      <form action="/form-handler" method="POST">
         <p>Enter some text here:</p>
         <textarea name="text-input">hello world</textarea>
         <br/>
         <input type="submit" />
-    </form>
+      </form>
+      <form action="/suggestions" method="POST">
+        <p>Have any suggestions? Drop them below!</p>
+        <label>
+          Commenter Name:
+          <input type="text" name="commenter-name">
+        </label>
+        <br>
+        <textarea name="text-comment">ex. Nice color choices! However, try to have more contrast.</textarea>
+        <br>
+        <input type="submit">
+      </form>
+    </div>
     <footer>
-        <form action="/suggestions" method="POST">
-            <p>Have any suggestions? Drop them below!</p>
-            <label>
-                Commenter Name:
-                <input type="text" name="commenter-name">
-            </label>
-            <br>
-            <textarea name="text-comment">ex. Nice color choices! However, try to have more contrast.</textarea>
-            <br>
-            <input type="submit">
-        </form>
+        
     </footer>
   </body>
 </html>
