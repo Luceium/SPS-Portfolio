@@ -71,4 +71,13 @@ async function translatePage(langCode){
     currentLangElem = document.getElementById(langCode);
     currentLangElem.disabled = true;
     
+    document.body.querySelectorAll('p').forEach(translateElem, langCode);
+}
+
+async function translateElem(node){
+    var text = node.innerText;
+
+    node.innerText = "Loading...";
+
+    
 }
