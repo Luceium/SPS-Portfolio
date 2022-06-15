@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="currentLangElem = document.getElementById('en');">
     <header>
        <ul>
         <li>
@@ -60,7 +60,10 @@
       </form>
     </div>
     <footer>
-        
+        <p>View the page in one of the languages I'm learning</p>
+        <button id="en" disabled onclick="translatePage('en')">English</button>
+        <button id="sp" onclick="translatePage('sp')">Spanish</button>
+        <button id="fr" onclick="translatePage('fr')">French</button>
     </footer>
   </body>
 </html>

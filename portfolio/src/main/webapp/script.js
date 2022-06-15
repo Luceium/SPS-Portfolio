@@ -63,3 +63,12 @@ async function doHello() {
     const respDisplayElem = document.getElementById("dynamicHello");
     respDisplayElem.innerText = randomFromArray(respJson);
 }
+
+var currentLangElem;
+async function translatePage(langCode){  
+    //change disabled button to the selected button
+    currentLangElem.disabled = false;
+    currentLangElem = document.getElementById(langCode);
+    currentLangElem.disabled = true;
+    
+}
