@@ -79,5 +79,16 @@ async function translateElem(node){
 
     node.innerText = "Loading...";
 
-    
+    //set up POST data
+    const params = new URLSearchParams();
+    params.append('text', text);
+    params.append('langCode', this);
+
+    fetch('/translate', {
+      method: 'POST',
+      body: params
+    }).then(response => response.text())
+    .then((translatedMessage) => {
+      node.innerHTML = translatedMessage;
+    });
 }
