@@ -53,10 +53,8 @@ function randomPic() {
  * Fetches the response dynamically from the /hello servlet
  */
 async function doHello() {
-    console.log("starting doHello()")
     const response = await fetch("/hello");
     const respJson = await response.json();
-    console.log("Success: HelloWorldServlet response obtained");
     console.log(respJson)
 
     //gets <p> to insert text
