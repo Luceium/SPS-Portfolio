@@ -53,13 +53,46 @@ function randomPic() {
  * Fetches the response dynamically from the /hello servlet
  */
 async function doHello() {
-    console.log("starting doHello()")
     const response = await fetch("/hello");
     const respJson = await response.json();
-    console.log("Success: HelloWorldServlet response obtained");
     console.log(respJson)
 
     //gets <p> to insert text
     const respDisplayElem = document.getElementById("dynamicHello");
     respDisplayElem.innerText = randomFromArray(respJson);
+}
+
+var currentLangElem;
+async function translatePage(langCode){  
+    selected = document.getElementById(langCode);
+    if (!selected) {
+        console.log(langCode + " does not match any button.")
+        return;
+    }
+        
+    //change disabled button to the selected button
+    currentLangElem.disabled = false;
+    currentLangElem = selected;
+    currentLangElem.disabled = true;
+    
+    document.body.querySelectorAll('p').forEach(translateElem, langCode);
+}
+
+async function translateElem(node){
+    var text = node.innerText;
+
+    node.innerText = "Loading...";
+
+    //set up POST data
+    const params = new URLSearchParams();
+    params.append('text', text);
+    params.append('langCode', this);
+
+    fetch('/translate', {
+      method: 'POST',
+      body: params
+    }).then(response => response.text())
+    .then((translatedMessage) => {
+      node.innerHTML = translatedMessage;
+    });
 }
