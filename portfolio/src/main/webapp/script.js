@@ -64,9 +64,15 @@ async function doHello() {
 
 var currentLangElem;
 async function translatePage(langCode){  
+    selected = document.getElementById(langCode);
+    if (!selected) {
+        console.log(langCode + " does not match any button.")
+        return;
+    }
+        
     //change disabled button to the selected button
     currentLangElem.disabled = false;
-    currentLangElem = document.getElementById(langCode);
+    currentLangElem = selected;
     currentLangElem.disabled = true;
     
     document.body.querySelectorAll('p').forEach(translateElem, langCode);
