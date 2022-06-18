@@ -31,13 +31,7 @@ public class CommentHandlerServlet extends HttpServlet {
                 .set("comment", comment)
                 .build();
         datastore.put(suggestionEntity);
-        //log comment for later
-        System.out.println("Commenter: " + name);
-        System.out.println("Comment: " + comment);
-
-        //build response
-        response.setContentType("text/html;");
-        response.getWriter().println("Your comment was logged. Thank you, " + name + "!");
+        
         response.sendRedirect("/index.html");
     }
 }
