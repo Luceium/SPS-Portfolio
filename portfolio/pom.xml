@@ -19,11 +19,19 @@
     <googleCloudProjectId>mcuriel-sps-summer22</googleCloudProjectId>
   </properties>
 
+  <!-- Translate -->
   <dependencies>
     <dependency>
         <groupId>com.google.cloud</groupId>
         <artifactId>google-cloud-translate</artifactId>
         <version>1.70.0</version>
+    </dependency>
+
+    <!-- Datastore -->
+    <dependency>
+        <groupId>com.google.cloud</groupId>
+        <artifactId>google-cloud-datastore</artifactId>
+        <version>1.104.0</version>
     </dependency>
 
     <!-- Josn -->
