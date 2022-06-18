@@ -22,6 +22,7 @@ public class CommentHandlerServlet extends HttpServlet {
         //gets comment text
         String comment = request.getParameter("text-comment");
         String name = request.getParameter("commenter-name");
+        long timestamp = System.currentTimeMillis();
 
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Suggestion");
@@ -29,6 +30,7 @@ public class CommentHandlerServlet extends HttpServlet {
             Entity.newBuilder(keyFactory.newKey())
                 .set("name", name)
                 .set("comment", comment)
+                .set("timestamp", timestamp)
                 .build();
         datastore.put(suggestionEntity);
         
