@@ -10,8 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-// import org.jsoup.Jsoup;
-// import org.jsoup.safety.Whitelist;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Safelist;
 
 @WebServlet("/suggestions")
 public class CommentHandlerServlet extends HttpServlet {
@@ -20,7 +20,7 @@ public class CommentHandlerServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         
         //gets comment text
-        String comment = request.getParameter("text-comment");
+        String comment = Jsoup.clean(request.getParameter("text-comment"), Safelist.none());
         String name = request.getParameter("commenter-name");
         long timestamp = System.currentTimeMillis();
 
