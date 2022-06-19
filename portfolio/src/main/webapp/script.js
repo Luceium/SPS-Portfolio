@@ -108,6 +108,6 @@ async function getPastSuggestions(){
 
 function createSuggestionElement(comment){
     var commentElem = document.createElement("p");
-    commentElem.innerText = comment.name + ": " + comment.comment;
+    commentElem.innerText = comment.comment;
     return commentElem;
 }
