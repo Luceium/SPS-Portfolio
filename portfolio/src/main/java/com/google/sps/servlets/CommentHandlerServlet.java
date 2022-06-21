@@ -17,7 +17,7 @@ public class CommentHandlerServlet extends HttpServlet {
         
         //gets information
         String comment = Jsoup.clean(request.getParameter("text-comment"), Safelist.none());
-        String name = request.getParameter("commenter-name");
+        String name = Jsoup.clean(request.getParameter("commenter-name"), Safelist.none());
 
         DatastoreHelper.write(name, comment);
         
