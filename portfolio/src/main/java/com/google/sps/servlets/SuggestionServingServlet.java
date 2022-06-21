@@ -14,17 +14,11 @@
 
 package com.google.sps.servlets;
 
-import com.google.cloud.datastore.Datastore;
-import com.google.cloud.datastore.DatastoreOptions;
-import com.google.cloud.datastore.Entity;
-import com.google.cloud.datastore.Query;
-import com.google.cloud.datastore.QueryResults;
-import com.google.cloud.datastore.StructuredQuery.OrderBy;
 import com.google.gson.Gson;
+import com.google.sps.apihelper.DatastoreHelper;
 import com.google.sps.data.Comment;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,22 +31,7 @@ public class SuggestionServingServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-    Query<Entity> query =
-        Query.newEntityQueryBuilder().setKind("Suggestion").setOrderBy(OrderBy.desc("timestamp")).build();
-    QueryResults<Entity> results = datastore.run(query);
-
-    List<Comment> comments = new ArrayList<>();
-    while (results.hasNext()) {
-      Entity entity = results.next();
-
-      long id = entity.getKey().getId();
-      String commentConetent = entity.getString("comment");
-      long timestamp = entity.getLong("timestamp");
-
-      Comment comment = new Comment(id, commentConetent, timestamp);
-      comments.add(comment);
-    }
+    List<Comment> comments = DatastoreHelper.read();
 
     Gson gson = new Gson();
 
