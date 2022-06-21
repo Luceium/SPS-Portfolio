@@ -5,6 +5,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.google.sps.apihelper.DatastoreHelper;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Safelist;
 
 @WebServlet("/suggestions")
 public class CommentHandlerServlet extends HttpServlet {
@@ -12,17 +15,12 @@ public class CommentHandlerServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         
-        //gets comment text
-        String comment = request.getParameter("text-comment");
-        String name = request.getParameter("commenter-name");
+        //gets information
+        String comment = Jsoup.clean(request.getParameter("text-comment"), Safelist.none());
+        String name = Jsoup.clean(request.getParameter("commenter-name"), Safelist.none());
 
-        //log comment for later
-        System.out.println("Commenter: " + name);
-        System.out.println("Comment: " + comment);
-
-        //build response
-        response.setContentType("text/html;");
-        response.getWriter().println("Your comment was logged. Thank you, " + name + "!");
+        DatastoreHelper.write(name, comment);
+        
         response.sendRedirect("/index.html");
     }
 }

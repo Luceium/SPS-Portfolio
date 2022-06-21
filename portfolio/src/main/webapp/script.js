@@ -96,3 +96,18 @@ async function translateElem(node){
       node.innerHTML = translatedMessage;
     });
 }
+
+async function getPastSuggestions(){
+    fetch('/serve-suggestions').then(response => response.json()).then((suggestions) => {
+        const suggestionListElement = document.getElementById('comment-container');
+        suggestions.forEach((suggestion) => {
+            suggestionListElement.appendChild(createSuggestionElement(suggestion));
+        })
+    });
+}
+
+function createSuggestionElement(comment){
+    var commentElem = document.createElement("p");
+    commentElem.innerText = comment.comment;
+    return commentElem;
+}

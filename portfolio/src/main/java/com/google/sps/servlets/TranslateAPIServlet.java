@@ -16,13 +16,14 @@ public class TranslateAPIServlet extends HttpServlet{
 
     private static HashSet<String> ACCEPTED_LANGUAGES = new HashSet<String>();
 
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+    public TranslateAPIServlet(){
         ACCEPTED_LANGUAGES.add("en");
         ACCEPTED_LANGUAGES.add("es");
         ACCEPTED_LANGUAGES.add("fr");
+    }
 
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String langCode = request.getParameter("langCode");
         //Stops code from running if there is an invalid language
         if (!ACCEPTED_LANGUAGES.contains(langCode)){
