@@ -16,6 +16,7 @@ public class DatastoreHelper{
     public static void write(String name, String comment){
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Suggestion");
+        long timestamp = System.currentTimeMillis();
         FullEntity suggestionEntity =
             Entity.newBuilder(keyFactory.newKey())
                 .set("name", name)
@@ -37,7 +38,6 @@ public class DatastoreHelper{
 
             long id = entity.getKey().getId();
             String commentConetent = entity.getString("comment");
-            long timestamp = System.currentTimeMillis();
 
             Comment comment = new Comment(id, commentConetent, timestamp);
             comments.add(comment);
