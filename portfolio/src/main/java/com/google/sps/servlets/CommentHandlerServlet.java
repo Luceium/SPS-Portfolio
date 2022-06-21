@@ -17,7 +17,7 @@ public class CommentHandlerServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         
-        //gets infromation
+        //gets information
         String comment = Jsoup.clean(request.getParameter("text-comment"), Safelist.none());
         String name = request.getParameter("commenter-name");
         long timestamp = System.currentTimeMillis();
