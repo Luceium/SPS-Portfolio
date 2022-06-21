@@ -13,7 +13,7 @@ import com.google.cloud.datastore.StructuredQuery.OrderBy;
 import com.google.sps.data.Comment;
 
 public class DatastoreHelper{
-    public static void write(String name, String comment, long timestamp){
+    public static void write(String name, String comment){
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Suggestion");
         FullEntity suggestionEntity =
