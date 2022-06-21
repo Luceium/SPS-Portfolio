@@ -20,7 +20,6 @@ public class CommentHandlerServlet extends HttpServlet {
         //gets information
         String comment = Jsoup.clean(request.getParameter("text-comment"), Safelist.none());
         String name = request.getParameter("commenter-name");
-        long timestamp = System.currentTimeMillis();
 
         DatastoreHelper.write(name, comment, timestamp);
         

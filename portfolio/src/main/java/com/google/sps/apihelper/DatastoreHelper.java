@@ -38,7 +38,7 @@ public class DatastoreHelper{
 
             long id = entity.getKey().getId();
             String commentConetent = entity.getString("comment");
-            long timestamp = entity.getLong("timestamp");
+            long timestamp = System.currentTimeMillis();
 
             Comment comment = new Comment(id, commentConetent, timestamp);
             comments.add(comment);
