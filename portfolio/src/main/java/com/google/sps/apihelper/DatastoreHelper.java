@@ -2,7 +2,6 @@ package com.google.sps.apihelper;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.DatastoreOptions;
 import com.google.cloud.datastore.Entity;
